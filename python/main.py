@@ -64,13 +64,13 @@ def main():
     seleccion.eliminar(13)
     print(seleccion.dibujar())
 
-    titulo("6. Eliminar caso 3: dos hijos (sale el capitan 10)")
+    titulo("6. Eliminar caso 3: dos hijos (sale la raiz 10)")
     seleccion.eliminar(10)
     print(seleccion.dibujar())
     print()
     print(f"Inorden sigue ordenado: {seleccion.inorden()}")
 
-    titulo("7. Peor caso: la fila de TransMilenio")
+    titulo("7. Peor caso: arbol degenerado")
     fila = ArbolBST()
     for dorsal in range(1, 7):
         fila.insertar(dorsal, f"Jugador {dorsal}")

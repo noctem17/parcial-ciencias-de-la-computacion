@@ -71,13 +71,13 @@ public class Main {
         seleccion.eliminar(13);
         System.out.println(seleccion.dibujar());
 
-        titulo("6. Eliminar caso 3: dos hijos (sale el capitan 10)");
+        titulo("6. Eliminar caso 3: dos hijos (sale la raiz 10)");
         seleccion.eliminar(10);
         System.out.println(seleccion.dibujar());
         System.out.println();
         System.out.println("Inorden sigue ordenado: " + seleccion.inorden());
 
-        titulo("7. Peor caso: la fila de TransMilenio");
+        titulo("7. Peor caso: arbol degenerado");
         ArbolBST fila = new ArbolBST();
         for (int dorsal = 1; dorsal <= 6; dorsal++) {
             fila.insertar(dorsal, "Jugador " + dorsal);
