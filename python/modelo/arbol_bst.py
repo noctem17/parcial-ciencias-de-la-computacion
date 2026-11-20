@@ -1,6 +1,6 @@
 from collections import deque
 
-from nodo import Nodo
+from modelo.nodo import Nodo
 
 
 class ArbolBST:
@@ -156,20 +156,3 @@ class ArbolBST:
                     cola.append(nodo.derecho)
             niveles.append(nivel)
         return niveles
-
-    def dibujar(self):
-        if self.raiz is None:
-            return "(arbol vacio)"
-        lineas = []
-        self._dibujar(self.raiz, "", "raiz", lineas)
-        return "\n".join(lineas)
-
-    def _dibujar(self, nodo, prefijo, lado, lineas):
-        if nodo is None:
-            return
-        conectores = {"raiz": "", "der": "/-- ", "izq": "\\-- "}
-        arriba = "|   " if lado == "izq" else "    "
-        abajo = "|   " if lado == "der" else "    "
-        self._dibujar(nodo.derecho, prefijo + arriba, "der", lineas)
-        lineas.append(f"{prefijo}{conectores[lado]}{nodo.dorsal} {nodo.jugador}")
-        self._dibujar(nodo.izquierdo, prefijo + abajo, "izq", lineas)
