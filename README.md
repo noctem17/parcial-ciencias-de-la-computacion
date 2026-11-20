@@ -19,18 +19,32 @@ Para el ejemplo usamos la nomina de la Seleccion Colombia: cada jugador es un no
 | Recorrido por niveles | `por_niveles` | `porNiveles` |
 | Dibujar el arbol | `dibujar` | `dibujar` |
 
-## Estructura
+## Estructura (Modelo - Vista - Controlador)
+
+- **Modelo:** el arbol y sus nodos. Guarda los datos y hace las operaciones, no imprime nada.
+- **Vista:** todo lo que se muestra en consola, incluido el dibujo del arbol.
+- **Controlador:** recibe las acciones, le pide al modelo que las haga y le pasa los resultados a la vista.
 
 ```
 python/
-    nodo.py
-    arbol_bst.py
     main.py
+    modelo/
+        nodo.py
+        arbol_bst.py
+    vista/
+        vista_consola.py
+    controlador/
+        controlador_arbol.py
 java/
     src/
-        Nodo.java
-        ArbolBST.java
         Main.java
+        modelo/
+            Nodo.java
+            ArbolBST.java
+        vista/
+            VistaConsola.java
+        controlador/
+            ControladorArbol.java
 ```
 
 ## Como correrlo
@@ -45,6 +59,6 @@ python main.py
 Java (17 o superior):
 
 ```
-javac -d out java/src/*.java
+javac -d out -sourcepath java/src java/src/Main.java
 java -cp out Main
 ```
