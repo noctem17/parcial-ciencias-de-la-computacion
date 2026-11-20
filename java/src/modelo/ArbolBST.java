@@ -1,3 +1,5 @@
+package modelo;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +9,10 @@ public class ArbolBST {
 
     private Nodo raiz;
     private int tamano;
+
+    public Nodo getRaiz() {
+        return raiz;
+    }
 
     public boolean estaVacio() {
         return raiz == null;
@@ -203,30 +209,5 @@ public class ArbolBST {
             niveles.add(nivel);
         }
         return niveles;
-    }
-
-    public String dibujar() {
-        if (raiz == null) {
-            return "(arbol vacio)";
-        }
-        StringBuilder lineas = new StringBuilder();
-        dibujar(raiz, "", "raiz", lineas);
-        return lineas.toString().stripTrailing();
-    }
-
-    private void dibujar(Nodo nodo, String prefijo, String lado, StringBuilder lineas) {
-        if (nodo == null) {
-            return;
-        }
-        String conector = switch (lado) {
-            case "der" -> "/-- ";
-            case "izq" -> "\\-- ";
-            default -> "";
-        };
-        String arriba = lado.equals("izq") ? "|   " : "    ";
-        String abajo = lado.equals("der") ? "|   " : "    ";
-        dibujar(nodo.derecho, prefijo + arriba, "der", lineas);
-        lineas.append(prefijo).append(conector).append(nodo.dorsal).append(" ").append(nodo.jugador).append("\n");
-        dibujar(nodo.izquierdo, prefijo + abajo, "izq", lineas);
     }
 }
